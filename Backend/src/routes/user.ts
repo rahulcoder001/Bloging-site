@@ -30,8 +30,9 @@ userrouter.post('/signup', async (c) => {
 				password: body.password
 			}
 		});
+		const author = user.name;
 		const jwt = await sign({ id: user.id }, c.env.JWT_KEY);
-		return c.json({ jwt });
+		return c.json({ jwt,author });
 	} catch(e) {
 		c.status(403);
 		return c.json({ error: "error while signing up" });
@@ -60,8 +61,9 @@ userrouter.post('/signin', async (c) => {
             return c.json({ error: "user not found" });
 		}
 		if(user.password===body.password){
+			const author = user.name;
 			const jwt = await sign({ id: user.id }, c.env.JWT_KEY);
-			return c.json({ jwt });
+			return c.json({ jwt , author});
 		}
 	} catch(e) {
 		c.status(403);

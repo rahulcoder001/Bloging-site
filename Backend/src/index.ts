@@ -1,9 +1,13 @@
 import { Hono } from 'hono';
 import userrouter from './routes/user';
 import blogrouter from './routes/blog';
+import { cors } from 'hono/cors';
 
 
 const app = new Hono();
+
+
+app.use("/*",cors());
 
 
 app.route('/api/v1/user',userrouter);
