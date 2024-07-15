@@ -13,8 +13,8 @@ export const Signinscema = zod.object({
 })
 
 export const blogscema = zod.object({
-    title: zod.string().min(10).max(100),
-    content: zod.string().min(50),
+    title: zod.string(),
+    content: zod.string(),
 })
 
 export const updateblogscema = zod.object({

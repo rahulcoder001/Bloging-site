@@ -37,6 +37,7 @@ export const Home = () => {
                     </div>
                     {my ? (
                         blogs.map((blog) => (
+                            //@ts-ignore
                             <Blogs
                                 key={blog.id}
                                 title={blog.title}

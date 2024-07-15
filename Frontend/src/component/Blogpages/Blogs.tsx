@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 interface blogcard{
     title: string,
     content:string,
-    id:string,
+    id:Number,
     name:string,
     date:string,
 }

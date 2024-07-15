@@ -95,11 +95,6 @@ blogrouter.post('/', async(c) => {
     const prisma = new PrismaClient({
 		datasourceUrl: c.env?.DATABASE_URL	,
 	}).$extends(withAccelerate());
-       const {success} = blogscema.safeParse(body);
-       if(!success){
-        c.status(403);
-        return c.json({ error: "error while creating blog" });
-       }
     const userId = c.get("userId");
     const blog = await prisma.post.create({
         data: {
